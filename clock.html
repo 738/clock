@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+    <style>
+        body {
+            margin: 0;
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        #clock {
+            font-size: 300px;
+            font-weight: bold;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<h1 id="clock"></h1>
+<script>
+    let clock=document.getElementById('clock')
+    setInterval(()=>{
+        let today=new Date()
+        let hour=today.getHours()
+        let min=today.getMinutes()
+        let sec=today.getSeconds()
+        clock.innerHTML=`${pad(hour)}:${pad(min)}:${pad(sec)}`
+    }, 1000)
+    function pad(n) {
+        return n<10?'0'+n:n
+    }
+</script>
+</body>
+</html>
